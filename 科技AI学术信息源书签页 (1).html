@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技 / AI / 学术 信息源书签页</title>
+<style>
+  /* ===== 默认主题：白色（亮色） ===== */
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --card2:#eef1f5; --line:#e2e6ec;
+    --txt:#1a1d24; --sub:#6b7280; --accent:#2563eb; --green:#0f9d76; --purple:#7c3aed;
+    --warn:#c0392b; --switch-bg:#e2e6ec; --switch-fg:#1a1d24;
+  }
+  /* ===== 黑色（暗色）主题 ===== */
+  [data-theme="dark"]{
+    --bg:#0f1115; --card:#191c23; --card2:#1f232c; --line:#2b303b;
+    --txt:#e6e8ec; --sub:#9aa3b2; --accent:#4ea1ff; --green:#37d39b; --purple:#a98bff;
+    --warn:#ff8f8f; --switch-bg:#2b303b; --switch-fg:#e6e8ec;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{
+    margin:0;padding:22px 16px 60px;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.6;transition:background .2s,color .2s;
+  }
+  h1{font-size:22px;margin:4px 0 2px;letter-spacing:.5px;}
+  .lead{color:var(--sub);font-size:13px;margin:0 0 16px;}
+  .lead a{color:var(--accent);text-decoration:none;}
+
+  /* 顶部：标题区 + 主题切换 */
+  .head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .theme-switch{
+    flex:none;display:inline-flex;align-items:center;gap:7px;
+    background:var(--switch-bg);color:var(--switch-fg);border:1px solid var(--line);
+    border-radius:20px;padding:6px 12px;font-size:12px;cursor:pointer;
+    transition:background .2s,border-color .2s;
+  }
+  .theme-switch:active{transform:scale(.97);}
+  .theme-switch .ico{font-size:14px;line-height:1;}
+  .theme-switch .lab{font-weight:600;}
+
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px;}
+  .toolbar button{
+    background:var(--card);color:var(--txt);border:1px solid var(--line);
+    border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;transition:.15s;
+  }
+  .toolbar button.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;}
+  [data-theme="dark"] .toolbar button.active{color:#08101f;}
+
+  section{margin-bottom:26px;}
+  .group-head{
+    display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;
+    margin:0 2px 10px;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;}
+  .g-acad .dot{background:var(--green);} .g-agg .dot{background:var(--purple);} .g-week .dot{background:#e08a10;}
+  [data-theme="dark"] .g-week .dot{background:#ffb454;}
+
+  .card{
+    display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:12px 14px;margin-bottom:8px;text-decoration:none;color:var(--txt);
+    transition:background .15s,transform .1s;
+  }
+  .card:active{background:var(--card2);transform:scale(.99);}
+  .card-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .card h3{font-size:15px;margin:0;font-weight:600;}
+  .tag{
+    font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:10px;
+    padding:1px 7px;flex:none;
+  }
+  .card p{font-size:13px;color:var(--sub);margin:5px 0 0;}
+  .warn{color:var(--warn);}
+  .foot{color:var(--sub);font-size:12px;text-align:center;margin-top:28px;line-height:1.7;}
+  .hidden{display:none!important;}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div>
+      <h1>📡 科技 / AI / 学术 信息源</h1>
+      
+    </div>
+    <button class="theme-switch" id="themeBtn" aria-label="切换主题">
+      <span class="ico" id="themeIco">🌙</span><span class="lab" id="themeLab">深色</span>
+    </button>
+  </div>
+
+  <div class="toolbar" id="bar">
+    <button data-f="all" class="active">全部</button>
+    <button data-f="cn">中文资讯</button>
+    <button data-f="acad">学术一手</button>
+    <button data-f="agg">英文聚合</button>
+    <button data-f="week">周刊通讯</button>
+  </div>
+
+  <!-- 中文资讯 -->
+  <section class="g-cn" data-cat="cn">
+    <div class="group-head"><span class="dot"></span>中文资讯（零门槛，直接刷）</div>
+
+    <a class="card" href="https://www.aitntnews.com/" target="_blank" rel="noopener">
+      <div class="card-top"><h3>AITNT 全球 AI 新闻日报</h3><span class="tag">移动端 m.aitntnews.com</span></div>
+      <p>专注 AI 赛道：热点实时追踪、融资快讯、模型榜单，全免费不强制注册。</p>
+    </a>
+
+    <a class="card" href="https://aihot.news" target="_blank" rel="noopener">
+      <div class="card-top"><h3>AIHOT（数字生命卡兹克）</h3><span class="tag">全球资讯精选</span></div>
+      <p>日报 / 周报 / 月报 + 模型榜 + RSS。⚠️ 旧址 aihot.virxact.com 已于 2026-10-31 停用，以此为准。</p>
+    </a>
+
+    <a class="card" href="https://news.kyriewen.cn" target="_blank" rel="noopener">
+      <div class="card-top"><h3>极客热榜</h3><span class="tag">50+ 信源</span></div>
+      <p>个人维护聚合站，AI / 前端 / 后端 / 云原生分类，每天自动更新，点标题跳原文。</p>
+    </a>
+
+    <a class="card" href="https://www.tmtpost.com" target="_blank" rel="noopener">
+      <div class="card-top"><h3>钛媒体</h3><span class="tag">科技财经</span></div>
+      <p>综合科技财经，AI / 算力 / 产业深度稿多，大部分内容免登录可读。</p>
+    </a>
+  </section>
+
+  <!-- 学术一手 -->
+  <section class="g-acad" data-cat="acad" id="acad">
+    <div class="group-head"><span class="dot"></span>学术一手源（论文，完全免费）</div>
+
+    <a class="card" href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">
+      <div class="card-top"><h3>arXiv cs.AI 最新预印本</h3><span class="tag">最快</span></div>
+      <p class="warn">未经同行评议的预印本，重要结论建议回 HF 或 ACL 核对正式版本。</p>
+    </a>
+
+    <a class="card" href="https://huggingface.co/papers" target="_blank" rel="noopener">
+      <div class="card-top"><h3>Hugging Face Daily Papers</h3><span class="tag">每日 + 社区讨论</span></div>
+      <p>每日论文发现，右上角 ⭐ 即热门论文榜。原 Papers With Code 已并入此处。</p>
+    </a>
+
+    <a class="card" href="https://openreview.net" target="_blank" rel="noopener">
+      <div class="card-top"><h3>OpenReview</h3><span class="tag">评审公开</span></div>
+      <p>会议论文 + 公开评审，可看到审稿意见与被拒原因。</p>
+    </a>
+
+    <a class="card" href="https://aclanthology.org" target="_blank" rel="noopener">
+      <div class="card-top"><h3>ACL Anthology</h3><span class="tag">NLP 会议库</span></div>
+      <p>计算语言学会旗下会议 / 期刊论文全文，永久免费。</p>
+    </a>
+
+    <a class="card" href="https://scholar.google.com" target="_blank" rel="noopener">
+      <div class="card-top"><h3>Google Scholar</h3><span class="tag">查文献 / 追被引</span></div>
+      <p>基本功能免注册，适合追溯一篇论文的后续引用。</p>
+    </a>
+
+    <a class="card" href="https://www.aminer.cn" target="_blank" rel="noopener">
+      <div class="card-top"><h3>AMiner</h3><span class="tag">AI 学术搜索</span></div>
+      <p>AI 学术搜索 + 每日精选论文推荐，免费。</p>
+    </a>
+  </section>
+
+  <!-- 英文聚合 -->
+  <section class="g-agg" data-cat="agg" id="daily">
+    <div class="group-head"><span class="dot"></span>英文聚合（一个页面看全网）</div>
+
+    <a class="card" href="https://aitntnews.com/aiProductDetail.html?productId=14157" target="_blank" rel="noopener">
+      <div class="card-top"><h3>AIWire（AITNT 旗下）</h3><span class="tag">20+ 源 / 30分钟刷新</span></div>
+      <p>聚合 OpenAI、DeepMind、MIT Tech Review 等信源，可筛选分类。</p>
+    </a>
+
+    <a class="card" href="https://prismix.dev/news" target="_blank" rel="noopener">
+      <div class="card-top"><h3>Prismix</h3><span class="tag">71+ 源</span></div>
+      <p>TikTok 式个性化排序，免费免登录。RSS：<span class="tag">prismix.dev/news.rss</span></p>
+    </a>
+
+    <a class="card" href="https://news.ycombinator.com" target="_blank" rel="noopener">
+      <div class="card-top"><h3>Hacker News</h3><span class="tag">社区讨论</span></div>
+      <p>Y Combinator 旗下科技社区，AI 标签下讨论质量高。</p>
+    </a>
+  </section>
+
+  <!-- 周刊通讯 -->
+  <section class="g-week" data-cat="week" id="week">
+    <div class="group-head"><span class="dot"></span>免费周刊（网页版可直接读，不必订阅）</div>
+
+    <a class="card" href="https://www.deeplearning.ai/the-batch" target="_blank" rel="noopener">
+      <div class="card-top"><h3>The Batch</h3><span class="tag">吴恩达团队 · 周更</span></div>
+      <p>教学化讲研究，适合「理解研究意味着什么」，免费档可读往期。</p>
+    </a>
+
+    <a class="card" href="https://ai.tldr.tech" target="_blank" rel="noopener">
+      <div class="card-top"><h3>TLDR AI</h3><span class="tag">工作日日报</span></div>
+      <p>标题 + 两句摘要，工程师最快的初筛方式。往期归档：ai.tldr.tech/p/…</p>
+    </a>
+
+    <a class="card" href="https://www.rundown.ai/" target="_blank" rel="noopener">
+      <div class="card-top"><h3>The Rundown AI</h3><span class="tag">每日 · 偏实用</span></div>
+      <p>订阅量最大的每日通讯之一，偏「今天发生了什么、怎么用」。</p>
+    </a>
+
+    <a class="card" href="https://jack-clark.net" target="_blank" rel="noopener">
+      <div class="card-top"><h3>Import AI</h3><span class="tag">Jack Clark · 周更</span></div>
+      <p>侧重研究 + 政策 + 地缘，业内最长寿通讯之一。</p>
+    </a>
+  </section>
+
+  
+
+<script>
+  var STORE_KEY = 'ai-links-theme';
+  var html = document.documentElement;
+  var btn = document.getElementById('themeBtn');
+  var ico = document.getElementById('themeIco');
+  var lab = document.getElementById('themeLab');
+
+  function apply(theme){
+    if(theme === 'dark'){
+      html.setAttribute('data-theme','dark');
+      ico.textContent = '☀️'; lab.textContent = '浅色';
+    }else{
+      html.removeAttribute('data-theme');
+      ico.textContent = '🌙'; lab.textContent = '深色';
+    }
+  }
+
+  // 初始化：优先用上次记住的选择，其次跟随系统
+  var saved = null;
+  try{ saved = localStorage.getItem(STORE_KEY); }catch(e){}
+  if(saved === 'dark' || saved === 'light'){
+    apply(saved);
+  }else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+    apply('dark');
+  }else{
+    apply('light');
+  }
+
+  btn.addEventListener('click', function(){
+    var isDark = html.getAttribute('data-theme') === 'dark';
+    var next = isDark ? 'light' : 'dark';
+    apply(next);
+    try{ localStorage.setItem(STORE_KEY, next); }catch(e){}
+  });
+
+  // 分类筛选（沿用原来的逻辑）
+  var btns = document.querySelectorAll('#bar button');
+  var secs = document.querySelectorAll('section[data-cat]');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.f;
+      btns.forEach(function(x){x.classList.toggle('active', x===b);});
+      secs.forEach(function(s){
+        s.classList.toggle('hidden', f!=='all' && s.dataset.cat!==f);
+      });
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
